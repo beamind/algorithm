@@ -9,14 +9,9 @@ class UnionFind:
         if n not in self.tree:
             self.tree[n] = n
             return n
-        root = self.tree[n]
-        while root != self.tree[root]:
-            root = self.tree[root]
-        while self.tree[n] != root:
-            tmp = self.tree[n]
-            self.tree[n] = root
-            n = tmp
-        return root
+        if self.tree[n] != n:
+            self.tree[n] = self.find(self.tree[n])
+        return self.tree[n]
 
     def union(self, n1, n2):
         r1, r2 = self.find(n1), self.find(n2)
