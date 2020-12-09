@@ -14,9 +14,7 @@ class UnionFind:
         return self.tree[n]
 
     def union(self, n1, n2):
-        r1, r2 = self.find(n1), self.find(n2)
-        if r1 != r2:
-            self.tree[r1] = r2
+        self.tree[self.find(n1)] = self.find(n2)
 
     def cluster(self):
         cls = collections.defaultdict(set)
