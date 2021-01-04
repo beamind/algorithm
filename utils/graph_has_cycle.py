@@ -1,8 +1,8 @@
 from typing import Dict, Set
 
 
-# 判断图中是否有环
-def graph_has_cycle(self, graph: Dict[int, Set]) -> bool:
+# 判断无向图中是否有环
+def graph_has_cycle(graph: Dict[int, Set]) -> bool:
     def dfs(c, p):
         visited.add(c)
         for n in graph[c]:
