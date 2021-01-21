@@ -5,6 +5,7 @@ from typing import Dict, List, Set
 # 有向图的拓扑排序
 # n: 有向图的节点个数
 # graph: 有向图
+# 时间复杂度: O(m + n), 空间复杂度: O(m + n), 其中m是边数, n是顶点数
 def topological_sort(n, graph: Dict[int, Set]) -> List[int]:
     indegree = collections.defaultdict(int)
     for u, vs in graph.items():
