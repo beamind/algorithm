@@ -2,12 +2,13 @@ from typing import Dict, Set
 
 
 # 判断是否是二分图
-def grapth_is_bipartite(self, graph: Dict[int, Set[int]]):
+def grapth_is_bipartite(graph: Dict[int, Set[int]]):
     def dfs(v, c):
         visited[v] = c
         for n in graph[v]:
             if n not in visited:
-                dfs(n, 1 - c)
+                if not dfs(n, 1 - c):
+                    return False
             elif visited[n] == c:
                 return False
         return True
@@ -20,3 +21,8 @@ def grapth_is_bipartite(self, graph: Dict[int, Set[int]]):
             if not dfs(v, 0):
                 return False
     return True
+
+
+if __name__ == '__main__':
+    graph = {1: {2, 3}, 2: {1, 3}, 3: {1, 2}}
+    print(grapth_is_bipartite(graph))
