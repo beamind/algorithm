@@ -32,6 +32,8 @@ class Solution:
         m, n = len(haystack), len(needle)
         if n == 0:
             return 0
+
+        # 对模式串进行预处理来支持在文本中的快速查找
         next = [0] * n
         next[0] = -1
         i = -1
@@ -42,6 +44,7 @@ class Solution:
                 i += 1
             next[j] = i
 
+        # 匹配过程中文本串的指针i永远不回退
         j = 0
         for i in range(m):
             while j > 0 and haystack[i] != needle[j]:

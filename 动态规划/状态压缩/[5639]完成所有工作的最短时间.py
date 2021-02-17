@@ -60,7 +60,7 @@ class Solution:
                 res = float('inf')
                 ii = i
                 while True:
-                    ii = (ii - 1) & i  # 枚举子集
+                    ii = (ii - 1) & i  # 枚举子集(漂亮！！)
                     if ii <= 0:
                         break
                     res = min(res, max(dp[i][0] - dp[ii][0], dp[ii][kk - 1]))
