@@ -1,3 +1,4 @@
+import math
 from functools import lru_cache
 
 
@@ -13,6 +14,10 @@ def gcd(a, b):
     return b
 
 
+def gcd2(a, b):
+    return math.gcd(a, b)
+
+
 if __name__ == '__main__':
     print(gcd(121, 22))
     print(gcd(49, 63))
@@ -20,3 +25,5 @@ if __name__ == '__main__':
     print(gcd(0, 5))
 
     gcd.cache_clear()
+
+    print(gcd2(121, 22))
